@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'filament-tools-plugin'
     id 'org.jetbrains.dokka'
+    id 'maven-publish'
 }
 
 
@@ -126,4 +127,12 @@ dependencies {
     implementation "com.github.kittinunf.fuel:fuel-coroutines:2.3.1"
 }
 
-apply plugin: "com.vanniktech.maven.publish"
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'io.github.sceneview.ar'
+            artifactId = 'sceneview'
+            version = '0.10.3'
+        }
+    }
+}
